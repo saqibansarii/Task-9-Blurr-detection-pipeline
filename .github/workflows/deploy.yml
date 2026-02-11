@@ -22,17 +22,17 @@ jobs:
         echo "$PRIVATE_KEY" > private_key.pem
         chmod 600 private_key.pem
         ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER}@${HOST} '
-          cd /home/ubuntu/myapp &&
-          git config pull.rebase false &&
-          git fetch origin main &&
-          git reset --hard origin/main &&
+          cd /home/ubuntu/myapp
+          git config pull.rebase false
+          git fetch origin main
+          git reset --hard origin/main
           if [ -d "Blur-Detection-Web-App-master/Blur-Detection-Web-App-master" ]; then
-            cp -r Blur-Detection-Web-App-master/Blur-Detection-Web-App-master/* . &&
+            cp -r Blur-Detection-Web-App-master/Blur-Detection-Web-App-master/* .
             rm -rf Blur-Detection-Web-App-master
-          fi &&
-          source venv/bin/activate &&
-          pip install -r requirements.txt &&
-          sudo systemctl restart myapp &&
+          fi
+          source venv/bin/activate
+          pip install -r requirements.txt
+          sudo systemctl restart myapp
           sudo systemctl status myapp --no-pager
         '
         rm -f private_key.pem
