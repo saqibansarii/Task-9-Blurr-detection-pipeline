@@ -12,3 +12,4 @@ Source: https://www.pyimagesearch.com/2015/09/07/blur-detection-with-opencv/
 ```
 python main.py
 ```
+"Pipeline test" 
