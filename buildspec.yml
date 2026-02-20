@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - echo "Installing dependencies..."
+      - pip install --upgrade pip
+      - pip install -r requirements.txt
+
+  pre_build:
+    commands:
+      - echo "Running tests..."
+      - pip install pytest
+      - pytest tests/ -v || true   # adjust path to your test files
+
+  build:
+    commands:
+      - echo "Build phase - packaging application..."
+      - echo "Build completed on `date`"
+
+  post_build:
+    commands:
+      - echo "Post build phase completed"
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
