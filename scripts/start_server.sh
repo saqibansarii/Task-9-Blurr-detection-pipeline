@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/ubuntu/blur-detection
+cd /home/ubuntu/myapp
 
 echo "Starting Gunicorn..."
 systemctl start gunicorn
